@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<body>
+  <video poster="/img/hometop.jpg" id="bgvid" playsinline autoplay muted loop>
+  <source src="/vid/Galaxy6.webm" type="video/webm">
+  <source src="/vid/Galaxy6.m4v" type="video/m4v">
+  </video>
+  <div id="login">
+  <h1>Login</h1>
+  <div class="log-triangle"></div>
+  <form action ="/login-user" method="post" class="log-container">
+    <p><input type="email" name="logemail" placeholder="Email"></p>
+    <p><input type="password" name="logpass" placeholder="Password"></p>
+    <p><input type="submit" value="Log in"></p>
+  </form>
+  </div>
+  <img id="burban" src="/img/BurbanRadioLogo.png" alt="Burban" width="420" height="300">
+  <div id="register">
+  <h1>Register</h1>
+  <div class="reg-triangle"></div>
+  <form action = "/register-user" method="post" class="reg-container">
+    <p><input type="email" name="email" placeholder="Email"></p>
+    <p><input type="username" name="username" placeholder="Username"></p>
+    <p><input type="password" name="pass" placeholder="Password"></p>
+    <p><input type="password"  name="passcon"placeholder="Confirm Password"></p>
+    <p><input type="submit" value="Register"></p>
+  </form>
+  </div>
+  </div>

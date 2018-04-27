@@ -1,0 +1,36 @@
+{
+  "name": "FinalProject",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0480-007-fall-2017/knj228-final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-007-fall-2017/knj228-final-project/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-007-fall-2017/knj228-final-project#readme",
+  "dependencies": {
+    "angular": "^1.6.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "hbs": "^4.0.1",
+    "hds": "^0.6.3",
+    "icecast-parser": "^3.0.0",
+    "mongoose": "^4.12.6",
+    "mongoose-url-slugs": "^1.0.2",
+    "node-uuid": "^1.4.8",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}

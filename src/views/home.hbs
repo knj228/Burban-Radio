@@ -1,0 +1,188 @@
+<script>
+var FavApp = angular.module("FavApp",[]);
+FavApp.config(function($interpolateProvider) {
+  $interpolateProvider.startSymbol('{[{');
+  $interpolateProvider.endSymbol('}]}');
+});
+  FavApp.controller("favCTRL",function($scope,$http){
+    $scope.query = {}
+    $scope.queryBy = '$'
+    function findSong(song) {
+    return song._id;
+    }
+    $scope.getID = function (id) {
+        return 'song-delete/' + id;
+    };
+    $scope.removeSong=function(id){
+     var index=$scope.songs.findIndex(x => x._id==id);
+     $scope.songs.splice(index,1);
+     $http.post('/song-delete/'+id).
+     success(function(data, status, headers, config) {
+     }).
+     error(function(data, status, headers, config) {
+       // log error
+     });
+   }
+   $scope.removeArtist=function(id){
+     var index=$scope.artists.findIndex(x => x._id==id);
+    $scope.artists.splice(index,1);
+    $http.post('/artist-delete/'+id).
+    success(function(data, status, headers, config) {
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
+  }
+    $http.get('/favsong').
+    success(function(data, status, headers, config) {
+      $scope.songs = data;
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
+    $http.get('/favartist').
+    success(function(data, status, headers, config) {
+      $scope.artists = data;
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
+  });
+</script>
+<html ng-app=FavApp>
+<body ng-controller="favCTRL" id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="logo" src="/img/logo.png" alt="Burban" width="50" height="50"> </a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#radio">Radio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#favorites">My Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Intro Header -->
+  <header class="masthead">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            {{#user}}
+            <h1 class="brand-heading">Welcome {{username}}</h1>
+            {{/user}}
+            <p class="intro-text">To Burban Radio. Click the Radio Link at the top of the page to listen right now.</p>
+            <a href="#about" class="btn btn-circle js-scroll-trigger">
+              <i class="fa fa-angle-double-down animated"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="content-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>About Burban</h2>
+          <p>Burban Radio is a online radio station that specializes in sharing mostly Hip/Hop, R&B, Soul, Alternative Rock and much more. While there are some curated programming, Burban Radio is fueled by you, the user. If you are a DJ, Upload your DJ mixes and we will play them at an appropriate time. If you aren't a DJ or Producer, it's ok, you can create your own mix from scratch from our catalog of music. We hope you discover new artists and enjoy the music!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="radio" class="download-section content-section text-center">
+    <div class="container">
+      <div class="col-lg-8 mx-auto">
+        <h2>Listen Now</h2>
+
+        <a href = "/radio" class="btn btn-default btn-lg">Burban Radio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="favorites" class="content-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h1>My Favorites</h1>
+          <h3> Favorite Songs </h3>
+            <input ng-model="query[queryBy]" type="text" placeholder="Search..." />
+          </div>
+              <table class="table">
+              <thead>
+              <tr>
+              <th>Song</th>
+              <th>Artist</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr ng-repeat="song in songs | filter:query">
+       <td>{[{song.name}]}</td>
+       <td>{[{song.artist}]}</td>
+       <td><button type="button" ng-click="removeSong(song._id)" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span></button></td>
+     </tr>
+   </tbody>
+</table>
+</div>
+<div class="col-lg-8 mx-auto">
+  <br><h3> Favorite Artists </h3>
+  <input type="text" name="search" placeholder="Search.."><br>
+      <table class="table">
+      <thead>
+      <tr>
+      <th>Artist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="artist in artists | filter:query">
+      <td>{[{artist.name}]}</td>
+      <td><button type="button" ng-click="removeArtist(artist._id)" class="close" aria-label="Close">
+ <span aria-hidden="true">&times;</span></button></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+        </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p>Copyright &copy; Burban+ß</p>
+    </div>
+  </footer>
+
+  <script>
+  $(document).ready(function(){
+      $('#wrapper').fadeIn();
+  });
+  </script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="../js/jquery.min.js"></script>
+  <!-- <script src="js/angular.js"></script> -->
+  <script src="../js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../js/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/home.min.js"></script>
+
+</body>

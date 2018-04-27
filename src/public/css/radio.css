@@ -1,0 +1,64 @@
+/*!
+ * Start Bootstrap - Full (https://startbootstrap.com/template-overviews/full)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-full/blob/master/LICENSE)
+ */
+ body {
+   margin: 0;
+   background: #000;
+ }
+ video {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     min-width: 100%;
+     min-height: 100%;
+     width: auto;
+     height: auto;
+     z-index: -100;
+     transform: translateX(-50%) translateY(-50%);
+     background: url('') no-repeat;
+   background-size: cover;
+   transition: 1s opacity;
+ }
+ #change{
+   position: fixed;
+   top: 60%;
+   left: 54.5%;
+ }
+
+ #favart{
+   position: fixed;
+   top: 60%;
+   left: 44%;
+ }
+
+ #favson{
+   position: fixed;
+   top: 60%;
+   left: 34%;
+ }
+
+
+ #song{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translateX(-50%) translateY(-50%);
+   color: white;
+ }
+
+ #artist{
+   position: absolute;
+   top: 40%;
+   left: 50%;
+   transform: translateX(-50%) translateY(-50%);
+   color: white;
+ }
+
+ .btn-primary-outline {
+   position: fixed;
+   background-color: transparent;
+   border-color: #fff;
+   color: #fff;
+ }

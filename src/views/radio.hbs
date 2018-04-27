@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Radio Burban</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Custom styles for this template -->
+    <link href="css/radio.css" rel="stylesheet">
+    <meta http-equiv="refresh" content="150">
+
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/home"><img id="logo" src="/img/logo.png" alt="Burban" width="50" height="50"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <script>(function (win, doc, script, source, objectName) { (win.RadionomyPlayerObject = win.RadionomyPlayerObject || []).push(objectName); win[objectName] = win[objectName] || function (k, v) { (win[objectName].parameters = win[objectName].parameters || { src: source, version: '1.1' })[k] = v; }; var js, rjs = doc.getElementsByTagName(script)[0]; js = doc.createElement(script); js.async = 1; js.src = source; rjs.parentNode.insertBefore(js, rjs); }(window, document, 'script', 'https://www.radionomy.com/js/radionomy.player.js', 'radplayer'));
+                radplayer('url', 'burbanradio');
+                radplayer('type', 'mobile');
+                radplayer('autoplay', '1');
+                radplayer('volume', '50');
+                radplayer('color1', '#f8e2fd');
+                radplayer('color2', '#ffffff');
+              </script>
+              <div class="radionomy-player"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button type="button" id="change" class="btn btn-primary-outline">Change Background</button>
+      <form action ="/favorite-artist" method="post" class="log-container">
+      <input type="submit" name = "favartist" class="btn btn-primary-outline" id="favart" value="Favorite Artist" />
+      </form>
+      <form action ="/favorite-song" method="post" class="log-container">
+        <input type="submit" name = "favsong" class="btn btn-primary-outline" id="favson" value="Favorite Song" />
+          <!-- <button type="submit" id="favson" class="btn btn-primary-outline">Favorite Song</button> -->
+        </form>
+    </nav>
+    <h1 id="artist">{{artist}}</h1>
+    <h1 id="song">{{song}}</h1>
+  </div>
+    <video poster="/img/Galaxy4.png" id="bgvid" playsinline autoplay muted loop>
+    <source id="galaxy" src="/vid/Galaxy4.webm" type="video/webm">
+    </video>
+    <!-- Bootstrap core JavaScript -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../js/jquery.easing.min.js"></script>
+    <script>
+    setInterval(function() {
+          window.location.reload();
+        }, 100000);
+    </script>
+    <script>
+    var btn = $('#change');
+    btn.on('click', function () {
+      var bg = $('#galaxy');
+      var gb = $('#bgvid');
+      var vid = "/vid/Galaxy"+(Math.floor(Math.random() * 6)+1)+".webm";
+      var pic = "/img/Galaxy"+(Math.floor(Math.random() * 6)+1)+".png";
+      bg.attr('src', vid);
+      gb.attr('poster', pic);
+      var video_block = $('#bgvid');
+      video_block.trigger('load');
+    });
+    </script>
+  </body>
+
+</html>
