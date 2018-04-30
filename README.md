@@ -84,36 +84,3 @@ https://creately.com/diagram/j9iyopea1/WI3dREWYDUWyMuN6NgvF7IlsJSM%3D
 3. as a user, I can listen to the radio station
 4. as a user, I can create a favorite list of my favorite songs I heard on the radio
 
-## Research Topics
-
-* (5 points) Integrate user authentication
-    * Using passport for user authentication
-    * email the password
-* (4 points) Perform client side form validation using a JavaScript library
-    * Used for Account Creation and Playlist making
-*  (2 points) Use a CSS framework throughout your site, use a reasonable of customization of the framework
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
-*  (5 points) - Per external API used, Icecast: http://icecast.org/download/
-        * Used for Live Streaming
-*  (6 points) - Use an external JavaScript library, Angular: https://angularjs.org/
-        * Using angular to cut down the amount of pages needed
-        * For built in search feature
-        * For Animations
-*  (5 points) - Use an external JavaScript library, Howler: https://howlerjs.com/
-        * Manage Audio Library  
-        * Uses Simple HTML5 audio
-
-
-
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
-
-
-## [Link to Initial Main Project File](app.js)
-
-(___TODO__: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js_)
-
-## Annotations / References Used
-
-(___TODO__: list any tutorials/references/etc. that you've based your code off of_)
-
-1. [passport.js authentication docs](http://passportjs.org/docs)
