@@ -1,22 +1,20 @@
 {
-  "name": "FinalProject",
+  "name": "BurbanRadio",
   "version": "1.0.0",
   "description": "",
   "main": ".eslintrc.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {"start": "node src/app.js"},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nyu-csci-ua-0480-007-fall-2017/knj228-final-project.git"
+    "url": "git+https://github.com/knj228/Burban-Radio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nyu-csci-ua-0480-007-fall-2017/knj228-final-project/issues"
+    "url": "https://github.com/knj228/Burban-Radio/issues"
   },
-  "homepage": "https://github.com/nyu-csci-ua-0480-007-fall-2017/knj228-final-project#readme",
+  "homepage": "https://github.com/knj228/Burban-Radio#readme",
   "dependencies": {
     "angular": "^1.6.7",
     "bcryptjs": "^2.4.3",
